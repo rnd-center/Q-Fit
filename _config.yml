@@ -15,7 +15,7 @@ rss:              RSS
 # lang: en
 # timezone: Asia/Seoul
 # bootstrap: use the remote theme for the site itself
-remote_theme: Mfafa/Studio3D
+# remote_theme: Mfafa/Studio3D
 
 toc:
   enabled: true
