@@ -9,13 +9,13 @@ description: >
 version:          1.0
 gitbook_version:  3.2.3
 
-url:              'https://rnd-center.github.io/Studio3D/'
-baseurl:          ''
+url:              'https://rnd-center.github.io'
+baseurl:          '/Studio3D'
 rss:              RSS
 # lang: en
 # timezone: Asia/Seoul
 # bootstrap: use the remote theme for the site itself
-remote_theme: sighingnow/jekyll-gitbook
+remote_theme: rnd-center/Studio3D
 
 toc:
   enabled: true
