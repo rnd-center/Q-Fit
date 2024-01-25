@@ -1,11 +1,9 @@
 # Configurations
-title:            All about 3D
-longtitle:        All about 3D Studio Viewer
+title:            EZ Studio 3D
+longtitle:        EZ Studio 3D Viewer
 author:           TesterJ
 email:            testerj.mfafa@gmail.com
 description: >
-  Build Jekyll site with the GitBook style.
-
 version:          1.0
 gitbook_version:  3.2.3
 
