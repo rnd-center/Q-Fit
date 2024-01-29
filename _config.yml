@@ -8,12 +8,12 @@ version:          1.0
 gitbook_version:  3.2.3
 
 url:              'https://rnd-center.github.io'
-baseurl:          '/Studio3D'
+baseurl:          '/Q-Fit'
 rss:              RSS
 # lang: en
 # timezone: Asia/Seoul
 # bootstrap: use the remote theme for the site itself
-remote_theme: rnd-center/Studio3D
+remote_theme: rnd-center/Q-Fit
 
 toc:
   enabled: true
