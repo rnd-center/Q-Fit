@@ -111,6 +111,9 @@ response >>
  <div id="mfafa-area" style=" height: 500px; margin-bottom: 30px;"></div>
 
 <script>
+  // 3D Viewer 초기화
+  WebGL_Load();
+ 
  // json._value : 상품에 대한 정보
  _setupModel(json._value);
 </script>
