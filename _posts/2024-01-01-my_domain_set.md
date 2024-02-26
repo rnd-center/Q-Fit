@@ -122,7 +122,7 @@ response >>
 상품 정보의 응답값에 해당하는 <b>'json._value'</b> 부분을 모두 _setupModel에 적용하시면 해당 상품에 대한 3D 모델링이 위의 뷰어 화면에 보이게 됩니다.
 '_setupModel()'은 위에 Import한 자바스크립트 파일에 정의되어 있습니다.
 
-<img style="width:600px;height:600px;" src='/Q-Fit/assets/img/1.jpg'>
+<img style="width:600px;height:600px;" src='/Qfit/assets/img/1.jpg'>
 
 ### 원단 리스트 확인 및 적용
 
@@ -160,7 +160,7 @@ FabricSetType을 설정하신 후 위와 같이 원단 이미지를 설정하실
 - data-set을 설정 시 <b>"(쌍따옴표)를 '(따옴표)로 변경</b>하여 넣어주시기 바랍니다.
 - 3D Object를 클릭 후 해당 원단을 클릭하여 OnBtnClickFabric를 호출하였을 시 FabricSetType 설정여부에 따라 적용 범위가 달라집니다.
 
-<img style="width:600px;height:600px;" src='/Q-Fit/assets/img/2.png'>
+<img style="width:600px;height:600px;" src='/Qfit/assets/img/2.png'>
 
 - 3D Object를 클릭 할 시 클릭한 부분의 원단이 노란색으로 바뀝니다.
 - 이후 원단 리스트에서 원하는 원단을 클릭하였을 시 노랗게 변경된 부분에 해당 원단이 적용됩니다. (FabricSetType(0)인 경우)
@@ -200,8 +200,8 @@ $(".artworkItem").on("click", () => {
 
 - data-set을 설정 시 <b>"(쌍따옴표)를 '(따옴표)로 변경</b>하여 넣어주시기 바랍니다.
 
-<img style="width:310px;height:400px;" src='/Q-Fit/assets/img/3.png'>
-<img style="width:310px;height:400px;" src='/Q-Fit/assets/img/4.png'>
+<img style="width:310px;height:400px;" src='/Qfit/assets/img/3.png'>
+<img style="width:310px;height:400px;" src='/Qfit/assets/img/4.png'>
 
 - 이후 아트웍 리스트에서 원하는 이미지를 클릭하였을 시 노랗게 변경된 부분에 해당 이미지가 적용됩니다.
 - 마우스 컨트롤을 통해 이미지를 확대/축소, 회전 하실 수 있습니다.
