@@ -8,7 +8,7 @@ version:          1.0
 gitbook_version:  3.2.3
 
 url:              'https://rnd-center.github.io'
-baseurl:          '/Q-Fit'
+baseurl:          '/Qfit'
 rss:              RSS
 # lang: en
 # timezone: Asia/Seoul
