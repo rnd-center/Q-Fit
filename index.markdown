@@ -1,5 +1,5 @@
 ---
-title: Qfit
+title: Qfit 소개
 author: TesterJ
 date: 2024-01-23
 category: Qfit
@@ -11,6 +11,6 @@ layout: home
 
 예시) [올댓핏 3D 스튜디오](https://allthatfit.com/Studio_Lst)
 
-<img style="width:800px;height:400px;" src='/assets/img/u1.png'>
+<img style="width:800px;height:400px;" src='/Qfit/assets/img/u1.png'>
 
 [//]: # (<video src="/Studio3D/assets/video/viewer.mp4" controls autoplay width="800" ></video>)
