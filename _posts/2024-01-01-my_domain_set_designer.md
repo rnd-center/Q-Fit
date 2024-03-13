@@ -1,5 +1,5 @@
 ---
-title: Qfit Designer 적용하기
+title: Allthatfit Designer 적용하기
 author: TesterJ
 date: 2024-01-23
 category: Set3D

@@ -1,5 +1,5 @@
 ---
-title: Qfit Viewer 적용하기
+title: Allthatfit Viewer 적용하기
 author: TesterJ
 date: 2024-01-23
 category: Set3D
