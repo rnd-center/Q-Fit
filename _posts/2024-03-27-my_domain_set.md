@@ -7,119 +7,75 @@ layout: post
 mermaid: true
 ---
 
-다음과 같이 운영 환경을 구성합니다. 
-해당 서비스는 자바스크립트로 운영됩니다.
 
+### 주의사항
 
-### 선행 작업
-3D 뷰어를 적용함에 앞서 먼저 어느 곳에서 호출한 것인지, 그리고 어떠한 상품의 정보를 표현할 것인지 알아야 합니다.
-1. 상품 정보를 불러오기 위해서 기업 정보를 통해 토큰을 발급하고
-2. 해당 토큰을 통해 상품 정보를 호출하는데 각각의 절차는 다음과 같습니다.
+1. 3D 뷰어는 다음과 같은 환경에서 사용 가능합니다.
+ - Cafe24를 통해 만들어진 웹 페이지인 경우
+ - 직접 개발한 웹페이지인 경우
+ 
+   (이외에 생성된 웹 환경에서 사용할 경우 발생하는 오류 사항에 대해 책임지지 않습니다.)
+ 
 
-```markdown
-request>>
-  curl -H "Domain: [도메인 주소]" -H "COMP_KEYS: [키 값]" -H "Accept: application/json" https://service.allthatfit.com/getToken/
-
-response>>
-  {"_result":true,"_message":"","_code":200,"_value":{"Token":"[토큰 값]","Domain":"[도메인 주소]","Timestamp":"[타임스탬프 값]"}}
-```
-위와 같이 '_result' 값이 true인 경우 정상적으로 토큰 값을 생성한 것이며 해당 토큰은 '_value'의 'Token'에 정의되어 있습니다.
-여기서 타임스탬프 값은 토큰을 발급받은 시간이며 토큰 발급 후 타임스탬프 값을 기준으로 하루동안 해당 토큰이 유효합니다.
-(하루가 지나면 토큰을 재발급 받으셔야 합니다.)
-키 값은 해당 서비스를 사용하는 사용자에게 비공개가 되어야 합니다.
-(회사 고유 키 값으로 공개되었을 시 문의 바랍니다.)
-
-서버의 응답값 구조는 다음과 같습니다.
- - _result : '값'이 정상적인지 확인
- - _message : 오류가 있거나 요구사항이 있는 경우 해당 내용 반환
- - _code : 서버 응답 코드
- - _value : 서버 응답 값  (다른 요청에 대한 응답도 동일 구조이며 이후 _value안의 값만 확인합니다.)
+2. 3D 뷰어를 통해 자신의 도메인에 3D 상품을 표현하고자 할 시 다음과 같은 작업이 필요합니다.
+ - 도메인 인증
+ - 상품 정보(URL) 확인
+ - 3D 뷰어 등록 
 
 
 
-```markdown
-request>>
-  curl -X POST -d "SAVE_INFO=[저장 데이터가 있는 경우]" -H "Domain: [도메인 주소]" -H "Timestamp: [상기 정의된 타임스탬프 값]" -H "Token: [상기 정의된 토큰 값]" -H "Accept: application/json" https://service.allthatfit.com/getProd/[Page URL]
+### 도메인 인증
 
-response>>
-  {
-    "_result":true,
-    "_message":"",
-    "_code":200,
-    "_value":{
-      "_InFo":"상품 정보(Text)",
-      "_Name":"상품 명칭",
-      "FABRICS":[
-        {
-          "_InFo":"원단 정보(Text)",
-          "_Mix":"", 
-          "_Tiln":"Object에 표현할 타일 갯수", 
-          "_Norm":"노멀 파일 URL",
-          "_Name":"원단 명칭",
-          "_Code":"원단 식별자(Int)",
-          "_Mtln":"금속 재질 표현 (Metalness)",
-          "_Thmb":"썸네일 URL",
-          "_Type1":"타입 명",
-          "_Alpha":"알파값",
-          "_Type2":"세부 타입 값",
-          "_Roug":""
-        }
-      ],
-      "OBJECTS":[
-        {
-          "fileName":"파일 명칭",
-          "fabric":"해당 오브젝트에 설정된 원단 정보",
-          "fileUrl":"파일 다운로드 URL",
-          "Extn":"파일 확장자"
-        }    
-      ],
-      "Thumbnail":"상품 썸네일",
-      "_Type1":"상품 타입1",
-      "_Type2":"상품 타입2",
-      "ARTWORKS":[]
-    }
-  }
-```
+먼저 3D 뷰어를 적용할 도메인에 대하여 해당 도메인이 사용하시는 관리자의 도메인이 맞는지 확인하는 절차가 필요합니다. 
+그 절차는 다음과 같습니다.
 
-request >>
- - Page URL : 상품 정보를 요청할 URL입니다. 관리페이지에 각 상품별 정의되어 있습니다.
- - Domain : 도메인 주소로 토큰 요청 시 결과값으로 들어있는 도메인 주소를 헤더에 설정하시면 됩니다.
- - Token : 상기 getToken을 통해 받아온 토큰 정보를 기입합니다.
- - Timestamp : 해당 토큰의 발급 시간으로 헤더에 설정해주시면 됩니다.
+1. [VirtualFit 관리자](https://service.allthatfit.com/Admin) 페이지에 로그인
+   - 관리자 계정이 없으신 경우 회원가입을 먼저 하시기 바랍니다.
+<img style="width:300px;height:200px;" src='/VirtualFit/assets/img/viewer_login_01.jpg'>
 
-response >>
- 응답값은 다음과 같이 구성되어 있습니다. 
-<b>(이 응답값을 json._value로 지칭합니다. )</b>
- - _NAME : 상품의 명칭입니다.
- - _INFO : 서버에 설정된 상품의 설명입니다.
- - FABRICS : 상품에 설정된 원단 리스트 정보입니다.
- - OBJECTS : 상품의 3D 오브젝트에 대한 정보입니다.
+2. '내정보 - 도메인 관리'에서 도메인 정보 등록
+   - 이메일 인증 후 해당 서비스를 사용하실 수 있습니다.
+   - 사용 중인 서비스에 따라 등록할 수 있는 도메인의 갯수에 차이가 있습니다.
+     * 무료 : 도메인 1회 등록 가능
+	 * 이코노미 : 도메인 3회 등록 가능
+	 * 프레스티지 : 도메인 무제한 등록 가능
 
-### 3D 스크립트 추가
-서비스를 운영할 페이지에 다음과 같이 자바스크립트를 Import 합니다.
+3. 도메인 정보를 등록하시면 인증파일이 생성됩니다. 이 인증파일을 도메인의 루트 디렉토리에 적용합니다.
+   - 사이트가 xxx.com 인 경우 
+     * xxx.com/abcdef12345ghiht67890.json 
+	 
+이후 3D 뷰어를 적용하였을 때 해당 json 파일이 확인되면 도메인 인증이 완료됩니다.
+
+### 상품 정보 확인
+
+도메인 인증이 완료되면 해당 도메인에 적용할 상품 정보를 확인합니다.
+상품 정보는 [VirtualFit 관리자](https://service.allthatfit.com/Admin) 페이지에 로그인 시 상품 리스트 및 상품 URL을 확인할 수 있습니다. 이 때 원하시는 상품의 URL 난수 값을 복사합니다.
+
+<img style="width:800px;height:100px;" src='/VirtualFit/assets/img/viewer_product_list.jpg'>
+
+
+
+### 스크립트 및 3D 뷰어 추가
+서비스를 운영할 페이지에 다음과 같이 자바스크립트와 3D 뷰어를 추가 합니다.
 
 ```markdown
+<!-- 3D Viewer -->
+<div id="mfafa-area" style=" height: 500px; margin-bottom: 30px;" 
+	data-set="[상품 URL 난수]" 
+	data-bgcolor="#F5F5F5" 
+	data-bgimg="[Image URL]"
+	data-light="0.22" 
+	data-bglight="0.29">
+</div>
+
 <script type="text/javascript" src="https://service.allthatfit.com/js/lib/LAB.js?v=1.0"></script>
 <script type="text/javascript" src="https://service.allthatfit.com/js/Front/Studio3D.js?v=1.0"></script>
 ```
 
-### 3D 모델 확인
-
-위 스크립트 적용 후 3D Viewer가 나오는 부분을 정의합니다.
-```yaml
- <!-- 3D Viewer 설정 -->
- <div id="mfafa-area" style=" height: 500px; margin-bottom: 30px;"></div>
-
-<script>
-  // 3D Viewer 초기화
-  WebGL_Load();
+ * data-set : 상품의 URL 난수 값입니다. (관리 페이지 상품 리스트에서 확인하실 수 있습니다.)
+ * data-bgcolor : 상품이 표현될 시 배경색입니다. (생략하였을 시 기본 배경이 적용됩니다.)
+ * data-bgimg :  상품이 표현될 시 배경 이미지입니다. (생략하였을 시 기본 배경이 적용됩니다.)
+ * data-light :  상품의 정면 조명 값입니다. 0~1까지 설정하실 수 있으며 값이 클 수록 강한 조명으로 비추게 됩니다. (생략하였을 시 기본 수치 값이 적용됩니다.)
+ * data-bglight : 상품의 전체 조명 값입니다. 0~1까지 설정하실 수 있으며 값이 클 수록 전체적으로 밝게 보입니다. (생략하였을 시 기본 수치 값이 적용됩니다.)
  
- // json._value : 상품에 대한 정보
- _setupModel(json._value);
-</script>
-```
-
-상품 정보의 응답값에 해당하는 <b>'json._value'</b> 부분을 모두 _setupModel에 적용하시면 해당 상품에 대한 3D 모델링이 위의 뷰어 화면에 보이게 됩니다.
-'_setupModel()'은 위에 Import한 자바스크립트 파일에 정의되어 있습니다.
-
-<img style="width:600px;height:600px;" src='/VirtualFit/assets/img/1.jpg'>
+ 
