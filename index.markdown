@@ -11,6 +11,6 @@ layout: home
 
 예시) [올댓핏 3D 스튜디오](https://allthatfit.com/Studio_Lst)
 
-<img style="width:800px;height:400px;" src='/Qfit/assets/img/u1.png'>
+<img style="width:800px;height:400px;" src='/VirtualFit/assets/img/u1.png'>
 
-[//]: # (<video src="/Studio3D/assets/video/viewer.mp4" controls autoplay width="800" ></video>)
+[//]: # (<video src="/VirtualFit/assets/video/viewer.mp4" controls autoplay width="800" ></video>)

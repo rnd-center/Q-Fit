@@ -8,12 +8,12 @@ version:          1.0
 gitbook_version:  3.2.3
 
 url:              'https://rnd-center.github.io'
-baseurl:          '/Qfit'
+baseurl:          '/VirtualFit'
 rss:              RSS
 # lang: en
 # timezone: Asia/Seoul
 # bootstrap: use the remote theme for the site itself
-remote_theme: rnd-center/Q-Fit
+remote_theme: rnd-center/VirtualFit
 
 toc:
   enabled: true

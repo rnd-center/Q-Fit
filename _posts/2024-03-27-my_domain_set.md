@@ -122,4 +122,4 @@ response >>
 상품 정보의 응답값에 해당하는 <b>'json._value'</b> 부분을 모두 _setupModel에 적용하시면 해당 상품에 대한 3D 모델링이 위의 뷰어 화면에 보이게 됩니다.
 '_setupModel()'은 위에 Import한 자바스크립트 파일에 정의되어 있습니다.
 
-<img style="width:600px;height:600px;" src='/Qfit/assets/img/1.jpg'>
+<img style="width:600px;height:600px;" src='/VirtualFit/assets/img/1.jpg'>
