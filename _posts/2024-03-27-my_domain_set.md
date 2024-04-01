@@ -31,8 +31,6 @@ mermaid: true
 
 1. [VirtualFit 관리자](https://service.allthatfit.com/Admin) 페이지에 로그인
    - 관리자 계정이 없으신 경우 회원가입을 먼저 하시기 바랍니다.
-<img style="width:300px;height:200px;" src='/VirtualFit/assets/img/viewer_login_01.jpg'>
-
 2. '내정보 - 도메인 관리'에서 도메인 정보 등록
    - 이메일 인증 후 해당 서비스를 사용하실 수 있습니다.
    - 사용 중인 서비스에 따라 등록할 수 있는 도메인의 갯수에 차이가 있습니다.
@@ -69,7 +67,7 @@ mermaid: true
 </div>
 
 <script type="text/javascript" src="https://service.allthatfit.com/js/lib/LAB.js?v=1.0"></script>
-<script type="text/javascript" src="https://service.allthatfit.com/js/Front/Studio3D.js?v=1.0"></script>
+<script type="text/javascript" src="https://service.allthatfit.com/js/Front/StudioSet.js?v=1.0"></script>
 ```
 
  * data-set : 상품의 URL 난수 값입니다. (관리 페이지 상품 리스트에서 확인하실 수 있습니다.)
