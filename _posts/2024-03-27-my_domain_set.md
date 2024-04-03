@@ -22,7 +22,8 @@ mermaid: true
  - 상품 정보(URL) 확인
  - 3D 뷰어 등록 
 
-
+3. 적용 순서는 다음과 같습니다.
+    <img style="width:800px;height:600px;" src='/VirtualFit/assets/img/flow.jpg'>
 
 ### 도메인 인증
 
@@ -68,8 +69,12 @@ mermaid: true
 
 <script type="text/javascript" src="https://service.allthatfit.com/js/lib/LAB.js?v=1.0"></script>
 <script type="text/javascript" src="https://service.allthatfit.com/js/Front/StudioSet.js?v=1.0"></script>
+
+<!-- JQuery 추가 (Cafe24 사이트인 경우 생략) -->
+<script type="text/javascript" src="[JQuery URL]"></script>
 ```
 
+ * 해당 서비스를 사용하기 위해선 JQuery가 필요합니다. (Cafe24를 통한 사이트인 경우 JQuery가 사이트에 적용되어 있어 생략하셔도 됩니다.)
  * data-set : 상품의 URL 난수 값입니다. (관리 페이지 상품 리스트에서 확인하실 수 있습니다.)
  * data-bgcolor : 상품이 표현될 시 배경색입니다. (생략하였을 시 기본 배경이 적용됩니다.)
  * data-bgimg :  상품이 표현될 시 배경 이미지입니다. (생략하였을 시 기본 배경이 적용됩니다.)
